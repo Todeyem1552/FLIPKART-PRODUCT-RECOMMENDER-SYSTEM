@@ -1,3 +1,9 @@
+import sys
+import os
+
+# Add root directory to sys.path
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from langchain_astradb import AstraDBVectorStore
 from langchain_huggingface import HuggingFaceEndpointEmbeddings
 from flipkart.data_converter import DataConverter
@@ -25,3 +31,7 @@ class DataIngestor:
 
         return self.vstore
 
+# if __name__ == "__main__":
+#     ingestor = DataIngestor()
+#     ingestor.ingest(load_existing=False)
+#     print("Data ingested successfully")
